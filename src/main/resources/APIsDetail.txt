@@ -1,0 +1,72 @@
+--------- Customer APIS -------------
+---- API : Add Customer In System ---------
+Method : POST
+URL : http://localhost:9090/cars24/customers
+Request Body :
+{"customer":{
+	"emailId":"abc@gmail.com",
+	"name":"Test1"}
+}
+
+---- API : CustomerInfo With Interest ---------
+Method : GET
+URL : http://localhost:9090/cars24/customers/2
+Request Body : {}
+
+---- API : Add Customer Interest ---------
+Method : PUT
+URL : http://localhost:9090/cars24/customers/interest
+Request Body :
+{"customerInterest":{
+	"model":"Swift",
+	"make":"Maruti",
+	"customerId":1
+}}
+
+------ Auction APIs ---------
+
+---- API : Auction Start With Car Detailed Report Submission ------
+Method : POST
+URL : http://localhost:9090/cars24/auctions/start
+Request Body :
+{"car":{"make":"Maruti",
+"model": "Swift",
+"variant":"vxi","manufacturingYear":2017,
+"registrationYear":"2018",
+"number":"KA03NE1254"
+},
+"auction":{
+	"startBid":100000
+}}
+
+---- API : Restart expired auction --------
+Method : POST
+URL : http://localhost:9090/cars24/auctions/restart
+Request Body :
+{"auctionId":1}
+
+---- API : Get auction details ------
+Method : GET
+URL : http://localhost:9090/cars24/auctions/1
+Request Body : {}
+
+---- API : Get All Active Auction ----------
+Method : GET
+URL : http://localhost:9090/cars24/auctions/active
+Request Body : {}
+
+
+---- API : Add bid for Active Auction -------
+Method : POST
+URL : http://localhost:9090/cars24/bids
+Request Body :
+{"bid":{
+	"customerId":1,
+	"auctionId":1,
+	"amount":120000
+}}
+
+---- API : Get All Bids for Auction in price decreasing order -----
+Method : GET
+URL : http://localhost:9090/cars24/bids/52
+Request Body : {}
